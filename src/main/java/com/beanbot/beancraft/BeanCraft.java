@@ -4,6 +4,7 @@ import com.beanbot.beancraft.handler.ConfigurationHandler;
 import com.beanbot.beancraft.proxy.IProxy;
 import com.beanbot.beancraft.reference.Reference;
 import com.beanbot.beancraft.utility.LogHelper;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -23,6 +24,7 @@ public class BeanCraft
     public void preInit(FMLPreInitializationEvent event)
     {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
         LogHelper.info("Pre Initialization Complete");
     }
 
