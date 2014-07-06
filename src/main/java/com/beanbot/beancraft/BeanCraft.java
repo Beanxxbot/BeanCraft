@@ -1,6 +1,7 @@
 package com.beanbot.beancraft;
 
 import com.beanbot.beancraft.handler.ConfigurationHandler;
+import com.beanbot.beancraft.init.ModItems;
 import com.beanbot.beancraft.proxy.IProxy;
 import com.beanbot.beancraft.reference.Reference;
 import com.beanbot.beancraft.utility.LogHelper;
@@ -26,6 +27,8 @@ public class BeanCraft
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
         LogHelper.info("Pre Initialization Complete");
+
+        ModItems.init();
     }
 
     @Mod.EventHandler
