@@ -1,2 +1,5 @@
 # Item localizations
 item.beancraft:goldenLeaf.name=Golden Leaf
+
+# Block localizations
+tile.beancraft:goldenLeaves.name=Golden Leaf Block
