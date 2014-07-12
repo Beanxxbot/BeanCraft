@@ -1,7 +1,9 @@
 # Item localizations
 item.beancraft:goldenLeaf.name=Gold Laced Leaf
 item.beancraft:leaf.name=Leaf
+item.beancraft:sirJamlo.name=Sir Jamlo's Coconut
 
 # Block localizations
 tile.beancraft:goldenLeaves.name=Gold Laced Leaf Block
 tile.beancraft:bcLeaves.name=Leaf Block
+tile.beancraft:sirJamloBlock.name=Sir Jamlo's Coconut Block
