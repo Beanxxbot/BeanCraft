@@ -22,7 +22,7 @@ group= "com.beanbot.beancraft" // http://maven.apache.org/guides/mini/guide-nami
 archivesBaseName = "BeanCraft"
 
 minecraft {
-    version = "1.7.10-10.13.0.1178"
+    version = "1.7.10-10.13.0.1179"
     assetDir = "eclipse/assets"
 }
 
