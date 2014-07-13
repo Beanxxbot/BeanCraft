@@ -2,7 +2,7 @@
 {
   "modid": "BeanCraft",
   "name": "BeanCraft",
-  "description": "Bean's first real mod! Intended to help out with little things on the server",
+  "description": "A mod designed to allow you to grow ores and stuff in a very balanced way",
   "version": "0.1",
   "mcversion": "1.7.10",
   "url": "",
