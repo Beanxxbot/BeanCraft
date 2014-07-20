@@ -7,7 +7,7 @@ public class ItemSirJamlo extends ItemBC
     public ItemSirJamlo()
     {
         super();
-        this.setCreativeTab(CreativeTabBC.BC_TAB);
+        this.setCreativeTab(CreativeTabBC.BC_BONUS_TAB);
         this.setUnlocalizedName("sirJamlo");
     }
 }

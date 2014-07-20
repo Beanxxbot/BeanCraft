@@ -21,4 +21,16 @@ public class CreativeTabBC
             return "Bean Craft";
         }
     };
+    public static final CreativeTabs BC_BONUS_TAB = new CreativeTabs(Reference.MOD_ID)
+    {
+        @Override
+        public Item getTabIconItem() {
+            return ModItems.sirJamlo;
+        }
+
+        @Override
+        public String getTranslatedTabLabel() {
+            return "Bean Craft Bonus Items";
+        }
+    };
 }

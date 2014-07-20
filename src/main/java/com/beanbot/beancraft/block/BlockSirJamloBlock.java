@@ -12,7 +12,7 @@ public class BlockSirJamloBlock extends BlockBC
         this.setBlockTextureName("sirJamloBlock");
         this.setHardness(0.4F);
         this.setStepSound(soundTypePiston);
-        this.setCreativeTab(CreativeTabBC.BC_TAB);
+        this.setCreativeTab(CreativeTabBC.BC_BONUS_TAB);
     }
 
 }
