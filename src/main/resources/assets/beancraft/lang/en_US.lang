@@ -5,6 +5,10 @@ item.beancraft:sirJamlo.name=Sir Jamlo's Coconut
 item.beancraft:goldenChunk.name=Golden Chunk
 item.beancraft:goldenChunkLeaf.name=Gold Chunk Laced Leaf
 item.beancraft:goldenIngotLeaf.name=Gold Ingot Laced Leaf
+item.beancraft:infusedHoe.name=Infused Iron Hoe
+item.beancraft:vineStick.name=Vine Entangled Stick
+item.beancraft:ironBall.name=Iron Ball
+item.beancraft:ironNugget.name=Iron Nugget
 
 # Block localizations
 tile.beancraft:goldenLeaves.name=Gold Nugget Laced Leaf Block

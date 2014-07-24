@@ -3,6 +3,7 @@ package com.beanbot.beancraft;
 import com.beanbot.beancraft.handler.ConfigurationHandler;
 import com.beanbot.beancraft.init.ModBlocks;
 import com.beanbot.beancraft.init.ModItems;
+import com.beanbot.beancraft.init.Recipes;
 import com.beanbot.beancraft.proxy.IProxy;
 import com.beanbot.beancraft.reference.Reference;
 import com.beanbot.beancraft.utility.LogHelper;
@@ -32,11 +33,13 @@ public class BeanCraft
         ModItems.init();
 
         ModBlocks.init();
+
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        Recipes.init();
         LogHelper.info("Initialization Complete");
     }
 
