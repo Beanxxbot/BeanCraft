@@ -33,6 +33,5 @@ public class ModItems
         GameRegistry.registerItem(ironBall, "ironBall");
         GameRegistry.registerItem(ironNugget, "ironNugget");
 
-        OreDictionary.registerOre("nuggetIron", new ItemStack(ModItems.ironNugget));
     }
 }
