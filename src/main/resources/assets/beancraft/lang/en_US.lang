@@ -5,10 +5,15 @@ item.beancraft:sirJamlo.name=Sir Jamlo's Coconut
 item.beancraft:goldenChunk.name=Golden Chunk
 item.beancraft:goldenChunkLeaf.name=Gold Chunk Laced Leaf
 item.beancraft:goldenIngotLeaf.name=Gold Ingot Laced Leaf
-item.beancraft:infusedHoe.name=Infused Iron Hoe
+item.beancraft:infusedHoe.name=Iron Infused Hoe
 item.beancraft:vineStick.name=Vine Entangled Stick
 item.beancraft:ironBall.name=Iron Ball
 item.beancraft:ironNugget.name=Iron Nugget
+item.beancraft:dirtChunk.name=Dirt Chunk
+item.beancraft:ironChunk.name=Iron Chunk
+item.beancraft:ironChunkDirt.name=Dirt Crusted Iron Chunk
+item.beancraft:ironNuggetDirt.name=Dirt Crusted Iron Nugget
+item.beancraft:ironIngotDirt.name=Dirt Crusted Iron Ingot
 
 # Block localizations
 tile.beancraft:goldenLeaves.name=Gold Nugget Laced Leaf Block
@@ -16,3 +21,11 @@ tile.beancraft:bcLeaves.name=Leaf Block
 tile.beancraft:sirJamloBlock.name=Sir Jamlo's Coconut Block
 tile.beancraft:goldenChunkLeaves.name=Gold Chunk Laced Leaf Block
 tile.beancraft:goldenIngotLeaves.name=Gold Ingot Laced Leaf Block
+tile.beancraft:chunkyDirt.name=Chunky Dirt
+
+#Tooltip localizations
+tooltip.beancraft:infusedHoeLvlZero.name=Level: 0
+tooltip.beancraft:infusedHoeLvlOne.name:Level: 1
+tooltip.beancraft:infusedHoeLvlTwo.name:Level: 2
+tooltip.beancraft:infusedHoeLvlThree.name:Level: 3
+

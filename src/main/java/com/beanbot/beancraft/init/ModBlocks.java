@@ -12,6 +12,7 @@ public class ModBlocks
     public static final BlockBC sirJamloBlock = new BlockSirJamloBlock();
     public static final BlockBC goldenChunkLeaves = new BlockGoldenChunkLeaves();
     public static final BlockBC goldenIngotLeaves = new BlockGoldenIngotLeaves();
+    public static final BlockBC chunkyDirt = new BlockChunkyDirt();
 
     public static void init()
     {
@@ -20,6 +21,7 @@ public class ModBlocks
         GameRegistry.registerBlock(sirJamloBlock, "sirJamloBlock");
         GameRegistry.registerBlock(goldenChunkLeaves, "goldenChunkLeaves");
         GameRegistry.registerBlock(goldenIngotLeaves, "goldenIngotLeaves");
+        GameRegistry.registerBlock(chunkyDirt, "chunkyDirt");
     }
 
 }
