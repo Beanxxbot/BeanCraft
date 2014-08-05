@@ -20,13 +20,13 @@ public class BlockBCLeaves extends BlockBC
         this.setCreativeTab(CreativeTabBC.BC_TAB);
     }
 
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+    public Item getItemDropped(int x, Random random, int z)
     {
         return ModItems.leaf;
     }
 
-    public int quantityDropped(Random p_149745_1_)
+    public int quantityDropped(Random random)
     {
-        return 4;
+        return (random.nextInt(2));
     }
 }
