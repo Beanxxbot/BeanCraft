@@ -22,10 +22,11 @@ tile.beancraft:sirJamloBlock.name=Sir Jamlo's Coconut Block
 tile.beancraft:goldenChunkLeaves.name=Gold Chunk Laced Leaf Block
 tile.beancraft:goldenIngotLeaves.name=Gold Ingot Laced Leaf Block
 tile.beancraft:chunkyDirt.name=Chunky Dirt
+tile.beancraft:beanSapling.name=Generic Sapling
 
 #Tooltip localizations
 tooltip.beancraft:infusedHoeLvlZero.name=Level: 0
-tooltip.beancraft:infusedHoeLvlOne.name:Level: 1
-tooltip.beancraft:infusedHoeLvlTwo.name:Level: 2
-tooltip.beancraft:infusedHoeLvlThree.name:Level: 3
+tooltip.beancraft:infusedHoeLvlOne.name=Level: 1
+tooltip.beancraft:infusedHoeLvlTwo.name=Level: 2
+tooltip.beancraft:infusedHoeLvlThree.name=Level: 3
 

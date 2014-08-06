@@ -1,0 +1,49 @@
+private IIcon[] Icon;
+
+    public BlockBCSapling()
+    {
+        super(Material.plants);
+        this.setHardness(0.0F);
+        this.setStepSound(soundTypeGrass);
+        this.setBlockName("beanSapling");
+        this.setBlockTextureName("beanSapling");
+        this.setCreativeTab(CreativeTabBC.BC_TAB);
+        float f = 0.4F;
+        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
+    }
+
+    public int getRenderType()
+    {
+        return 1;
+    }
+    public boolean renderAsNormalBlock()
+    {
+        return false;
+    }
+    public boolean isOpaqueCube()
+    {
+        return false;
+    }
+
+
+
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister par1IconRegister)
+    {
+        blockIcon = par1IconRegister.registerIcon("assets/beancraft/textures/blocks/beanSapling");
+    }
+
+    @Override
+    public boolean func_149851_a(World p_149851_1_, int p_149851_2_, int p_149851_3_, int p_149851_4_, boolean p_149851_5_) {
+        return false;
+    }
+
+    @Override
+    public boolean func_149852_a(World p_149852_1_, Random p_149852_2_, int p_149852_3_, int p_149852_4_, int p_149852_5_) {
+        return false;
+    }
+
+    @Override
+    public void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
+
+    }

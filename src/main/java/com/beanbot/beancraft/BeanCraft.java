@@ -35,6 +35,8 @@ public class BeanCraft
         ModBlocks.init();
         OreDictionary.init();
 
+
+
     }
 
     @Mod.EventHandler

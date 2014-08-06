@@ -16,9 +16,15 @@ public class ModItems
     public static final ItemBC goldenChunkLeaf = new ItemGoldenChunkLeaf();
     public static final ItemBC goldenIngotLeaf = new ItemGoldenIngotLeaf();
     public static final ItemBC infusedHoe = new ItemInfusedHoe();
+    public static final ItemBC infusedHoeOne = new ItemInfusedHoeOne();
     public static final ItemBC vineStick = new ItemVineStick();
     public static final ItemBC ironBall = new ItemIronBall();
     public static final ItemBC ironNugget = new ItemIronNugget();
+    public static final ItemBC dirtChunk = new ItemDirtChunk();
+    public static final ItemBC ironChunk = new ItemIronChunk();
+    public static final ItemBC ironNuggetDirt = new ItemIronNuggetDirt();
+    public static final ItemBC ironChunkDirt = new ItemIronChunkDirt();
+    public static final ItemBC ironIngotDirt = new ItemIronIngotDirt();
 
     public static void init()
     {
@@ -32,6 +38,12 @@ public class ModItems
         GameRegistry.registerItem(vineStick, "vineStick");
         GameRegistry.registerItem(ironBall, "ironBall");
         GameRegistry.registerItem(ironNugget, "ironNugget");
+        GameRegistry.registerItem(ironChunk, "ironChunk");
+        GameRegistry.registerItem(dirtChunk, "dirtChunk");
+        GameRegistry.registerItem(ironNuggetDirt, "ironNuggetDirt");
+        GameRegistry.registerItem(ironChunkDirt, "ironChunkDirt");
+        GameRegistry.registerItem(ironIngotDirt, "ironIngotDirt");
+        GameRegistry.registerItem(infusedHoeOne, "infusedHoeOne");
 
     }
 }
