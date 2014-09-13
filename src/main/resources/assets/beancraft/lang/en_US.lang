@@ -14,6 +14,8 @@ item.beancraft:ironChunk.name=Iron Chunk
 item.beancraft:ironChunkDirt.name=Dirt Crusted Iron Chunk
 item.beancraft:ironNuggetDirt.name=Dirt Crusted Iron Nugget
 item.beancraft:ironIngotDirt.name=Dirt Crusted Iron Ingot
+item.beancraft:bioCrystal.name=Biologic Crystal
+item.beancraft:machineRod.name=Machine Rod
 
 # Block localizations
 tile.beancraft:goldenLeaves.name=Gold Nugget Laced Leaf Block
@@ -23,10 +25,13 @@ tile.beancraft:goldenChunkLeaves.name=Gold Chunk Laced Leaf Block
 tile.beancraft:goldenIngotLeaves.name=Gold Ingot Laced Leaf Block
 tile.beancraft:chunkyDirt.name=Chunky Dirt
 tile.beancraft:beanSapling.name=Generic Sapling
+tile.beancraft:nuggetDirt.name=Iron Nugget Infused Dirt
+tile.beancraft:machineCasing.name=Machine Casing
+tile.beancraft:machineCasing0Slab.name=Machine Casing Slab
 
 #Tooltip localizations
-tooltip.beancraft:infusedHoeLvlZero.name=Level: 0
-tooltip.beancraft:infusedHoeLvlOne.name=Level: 1
-tooltip.beancraft:infusedHoeLvlTwo.name=Level: 2
-tooltip.beancraft:infusedHoeLvlThree.name=Level: 3
+tooltip.beancraft:infusedHoeLvlZero.name=Level: Zero
+tooltip.beancraft:infusedHoeLvlOne.name=Level: One
+tooltip.beancraft:infusedHoeLvlTwo.name=Level: Two
+tooltip.beancraft:infusedHoeLvlThree.name=Level: Three
 

@@ -1,176 +1,141 @@
 package com.beanbot.beancraft.worldgen;
 
-import com.beanbot.beancraft.block.BlockBC;
 import com.beanbot.beancraft.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
+import net.minecraft.block.material.Material;
+import net.minecraft.util.Direction;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 
-public class WorldGenGenericTree extends WorldGenerator
-{
-    public final int minTreeHeight;
-    public final int treeHeightRange;
-    public final int metaWood;
-    public final int metaLeaves;
-    public final boolean seekHeight;
-    public final boolean notify;
+public class WorldGenGenericTree extends WorldGenerator {
+    /**
+     * The minimum height of a generated tree.
+     */
+    private final int minTreeHeight;
 
-    public WorldGenGenericTree(boolean notify, int treeHeight, int treeRange, int woodMeta, int leavesMeta)
-    {
-        super(notify);
-        this.notify = notify;
-        this.minTreeHeight = treeHeight;
-        this.treeHeightRange = treeRange;
-        this.metaWood = woodMeta;
-        this.metaLeaves = leavesMeta;
-        this.seekHeight = !notify;
+    public WorldGenGenericTree(boolean par1) {
+        this(par1, 4);
     }
 
-    @Override
-    public boolean generate(World world, Random rand, int x, int retries, int z)
-    {
-        for(int c = 0; c < retries; c++)
-        {
-            int y = world.getActualHeight() - 1;
-            while(world.isAirBlock(x, y, z) && y > 0)
-            {
-                y--;
-            }
-
-            if(!growTree(world, rand, x, y + 1, z))
-            {
-                retries--;
-            }
-
-            x += rand.nextInt(16) - 8;
-            z += rand.nextInt(16) - 8;
-        }
-
-        return true;
+    public WorldGenGenericTree(boolean par1, int par2) {
+        super(par1);
+        this.minTreeHeight = par2;
     }
 
-    public boolean growTree(World world, Random rand, int x, int y, int z)
-    {
-        int treeHeight = rand.nextInt(3) + 5,
-                worldHeight = world.getHeight();
-        Block block;
+    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5) {
+        int l = par2Random.nextInt(3) + this.minTreeHeight;
+        boolean flag = true;
 
-        if(y >= 1 && y + treeHeight + 1 <= worldHeight)
-        {
-            int blockId;
-            int xOffset;
-            int yOffset;
-            int zOffset;
+        if (par4 >= 1 && par4 + l + 1 <= 256) {
+            byte b0;
+            int k1;
+            Block block;
 
-            blockId = world.getBlockId(x, y - 1, z);
-            block = Block.blocksList[blockId];
+            for (int i1 = par4; i1 <= par4 + 1 + l; ++i1) {
+                b0 = 1;
 
-            if((block != null && block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP,
-                    (ModBlocks.beanSapling))) &&
-                    y < worldHeight - treeHeight - 1)
-            {
-                for(yOffset = y; yOffset <= y + 1 + treeHeight; ++yOffset)
-                {
-                    byte radius = 1;
+                if (i1 == par4) {
+                    b0 = 0;
+                }
 
-                    if(yOffset == y)
-                    {
-                        radius = 0;
+                if (i1 >= par4 + 1 + l - 2) {
+                    b0 = 2;
+                }
+
+                for (int j1 = par3 - b0; j1 <= par3 + b0 && flag; ++j1) {
+                    for (k1 = par5 - b0; k1 <= par5 + b0 && flag; ++k1) {
+                        if (i1 >= 0 && i1 < 256) {
+                            block = par1World.getBlock(j1, i1, k1);
+
+                            if (!this.isReplaceable(par1World, j1, i1, k1)) {
+                                flag = false;
+                            }
+                        } else {
+                            flag = false;
+                        }
                     }
+                }
+            }
 
-                    if(yOffset >= y + 1 + treeHeight - 2)
-                    {
-                        radius = 2;
-                    }
+            if (!flag) {
+                return false;
+            } else {
+                Block block2 = par1World.getBlock(par3, par4 - 1, par5);
 
-                    if(yOffset >= 0 & yOffset < worldHeight)
-                    {
-                        for(xOffset = x - radius; xOffset <= x + radius; ++xOffset)
-                        {
-                            for(zOffset = z - radius; zOffset <= z + radius; ++zOffset)
-                            {
-                                blockId = world.getBlockId(xOffset, yOffset, zOffset);
+                boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (ModBlocks.beanSapling));
+                if (isSoil && par4 < 256 - l - 1) {
+                    block2.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
+                    b0 = 3;
+                    byte b1 = 0;
+                    int l1;
+                    int i2;
+                    int j2;
+                    int i3;
 
-                                block = Block.blocksList[blockId];
+                    for (k1 = par4 - b0 + l; k1 <= par4 + l; ++k1) {
+                        i3 = k1 - (par4 + l);
+                        l1 = b1 + 1 - i3 / 2;
 
-                                if(block != null && !(block.isLeaves(world, xOffset, yOffset, zOffset) ||
-                                        block.isAirBlock(world, xOffset, yOffset, zOffset) ||
-                                        block.canBeReplacedByLeaves(world, xOffset, yOffset, zOffset)))
-                                {
-                                    return false;
+                        for (i2 = par3 - l1; i2 <= par3 + l1; ++i2) {
+                            j2 = i2 - par3;
+
+                            for (int k2 = par5 - l1; k2 <= par5 + l1; ++k2) {
+                                int l2 = k2 - par5;
+
+                                if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || par2Random.nextInt(2) != 0 && i3 != 0) {
+                                    Block block1 = par1World.getBlock(i2, k1, k2);
+
+                                    if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2)) {
+                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, ModBlocks.bcLeaves, 0);
+                                    }
                                 }
                             }
                         }
                     }
-                    else
-                    {
-                        return false;
-                    }
-                }
 
-                blockId = world.getBlockId(x, y - 1, z);
-                block = Block.blocksList[blockId];
-                if (block == null)
-                { // this HAPPENS. wtf?
-                    return false; // abort, something went weird
-                }
-                block.onPlantGrow(world, x, y - 1, z, x, y, z);
+                    for (k1 = 0; k1 < l; ++k1) {
+                        block = par1World.getBlock(par3, par4 + k1, par5);
 
-                for(yOffset = y - 3 + treeHeight; yOffset <= y + treeHeight; ++yOffset)
-                {
-                    int var12 = yOffset - (y + treeHeight),
-                            center = 1 - var12 / 2;
-
-                    for(xOffset = x - center; xOffset <= x + center; ++xOffset)
-                    {
-                        int xPos = xOffset - x, t = xPos >> 31;
-                        xPos = (xPos + t) ^ t;
-
-                        for(zOffset = z - center; zOffset <= z + center; ++zOffset)
-                        {
-                            int zPos = zOffset - z;
-                            zPos = (zPos + (t = zPos >> 31)) ^ t;
-
-                            block = Block.blocksList[world.getBlockId(xOffset, yOffset, zOffset)];
-
-                            if(((xPos != center | zPos != center) ||
-                                    rand.nextInt(2) != 0 && var12 != 0) &&
-                                    (block == null || block.isLeaves(world, xOffset, yOffset, zOffset) ||
-                                            block.isAirBlock(world, xOffset, yOffset, zOffset) ||
-                                            block.canBeReplacedByLeaves(world, xOffset, yOffset, zOffset)))
-                            {
-                                this.setBlockAndMetadata(world, xOffset, yOffset, zOffset,
-                                        ModBlocks.bcLeaves, 0);
+                        if (block.isAir(par1World, par3, par4 + k1, par5) || block.isLeaves(par1World, par3, par4 + k1, par5)) {
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, Blocks.log, 0);
+                        }
+                        if (par2Random.nextInt(5) == 0 && l > 5) {
+                            for (k1 = 0; k1 < 2; ++k1) {
+                                for (i3 = 0; i3 < 4; ++i3) {
+                                    if (par2Random.nextInt(4 - k1) == 0) {
+                                        l1 = par2Random.nextInt(3);
+                                        this.setBlockAndNotifyAdequately(par1World, par3 + Direction.offsetX[Direction.rotateOpposite[i3]], par4 + l - 5 + k1, par5 + Direction.offsetZ[Direction.rotateOpposite[i3]], Blocks.cocoa, l1 << 2 | i3);
+                                    }
+                                }
                             }
                         }
                     }
+
+                    return true;
+                } else {
+                    return false;
                 }
-
-                for(yOffset = 0; yOffset < treeHeight; ++yOffset)
-                {
-                    blockId = world.getBlockId(x, y + yOffset, z);
-
-                    block = Block.blocksList[blockId];
-
-                    if(block == null || block.isAirBlock(world, x, y + yOffset, z)  ||
-                            block.isLeaves(world, x, y + yOffset, z) ||
-                            block.isBlockReplaceable(world, x, y + yOffset, z)) // replace snow
-                    {
-                        this.setBlockAndMetadata(world, x, y + yOffset, z,
-                                Blocks.log, 1);
-                    }
-                }
-
-                return true;
             }
+        } else {
+            return false;
         }
-        return false;
     }
 
+    protected boolean func_150523_a(Block block)
+    {
+        return block.getMaterial() == Material.air || block.getMaterial() == Material.leaves || block == Blocks.grass || block == Blocks.dirt || block == Blocks.log || block == Blocks.log2 || block == Blocks.sapling || block == Blocks.vine;
+    }
+
+    protected boolean isReplaceable(World world, int x, int y, int z)
+    {
+        Block block = world.getBlock(x, y, z);
+        return block.isAir(world, x, y, z) || block.isLeaves(world, x, y, z) || block.isWood(world, x, y, z) || func_150523_a(block);
+    }
 
 }

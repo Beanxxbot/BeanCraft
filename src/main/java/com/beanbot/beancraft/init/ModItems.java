@@ -1,5 +1,6 @@
 package com.beanbot.beancraft.init;
 
+import com.beanbot.beancraft.creativetab.CreativeTabBC;
 import com.beanbot.beancraft.item.*;
 import com.beanbot.beancraft.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,6 +26,8 @@ public class ModItems
     public static final ItemBC ironNuggetDirt = new ItemIronNuggetDirt();
     public static final ItemBC ironChunkDirt = new ItemIronChunkDirt();
     public static final ItemBC ironIngotDirt = new ItemIronIngotDirt();
+    public static final ItemBC bioCrystal = new ItemBioCrystal();
+    public static final ItemBC machineRod = new ItemMachineRod();
 
     public static void init()
     {
@@ -44,6 +47,8 @@ public class ModItems
         GameRegistry.registerItem(ironChunkDirt, "ironChunkDirt");
         GameRegistry.registerItem(ironIngotDirt, "ironIngotDirt");
         GameRegistry.registerItem(infusedHoeOne, "infusedHoeOne");
+        GameRegistry.registerItem(bioCrystal, "bioCrystal");
+        GameRegistry.registerItem(machineRod, "machineRod");
 
     }
 }

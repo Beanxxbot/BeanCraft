@@ -4,6 +4,7 @@ import com.beanbot.beancraft.block.*;
 import com.beanbot.beancraft.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockSapling;
 
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
@@ -16,6 +17,12 @@ public class ModBlocks
     public static final BlockBC goldenIngotLeaves = new BlockGoldenIngotLeaves();
     public static final BlockBC chunkyDirt = new BlockChunkyDirt();
     public static final BlockSapling beanSapling = new BlockBCSapling();
+    public static final BlockBCCrop nuggetDirt = new BlockNuggetDirt();
+    public static final BlockBC machineCasing = new BlockMachineCasing();
+    public static final BlockBCSlab machineCasingSlab = new BlockMachineCasingSlab(false);
+    public static final BlockBCSlab machineCasingSlabFull = new BlockMachineCasingSlab(true);
+
+
 
     public static void init()
     {
@@ -26,6 +33,10 @@ public class ModBlocks
         GameRegistry.registerBlock(goldenIngotLeaves, "goldenIngotLeaves");
         GameRegistry.registerBlock(chunkyDirt, "chunkyDirt");
         GameRegistry.registerBlock(beanSapling, "beanSapling");
+        GameRegistry.registerBlock(nuggetDirt, "nuggetDirt");
+        GameRegistry.registerBlock(machineCasing, "machineCasing");
+        GameRegistry.registerBlock(machineCasingSlab, "machineCasingSlab");
+        GameRegistry.registerBlock(machineCasingSlabFull, "machineCasingSlabFull");
     }
 
 }

@@ -15,17 +15,17 @@ public class BlockChunkyDirt extends BlockBC
         this.setBlockName("chunkyDirt");
         this.setBlockTextureName("chunkyDirt");
         this.setStepSound(soundTypeGravel);
-        this.setHardness(0.8F);
+        this.setHardness(0.3F);
         this.setCreativeTab(CreativeTabBC.BC_TAB);
     }
 
     public Item getItemDropped(int par1, Random random, int par2)
     {
-        return ModItems.ironNugget;
+        return ModItems.dirtChunk;
     }
 
     public int quantityDropped(Random random)
     {
-        return (random.nextInt(4) + 1);
+        return (random.nextInt(2));
     }
 }

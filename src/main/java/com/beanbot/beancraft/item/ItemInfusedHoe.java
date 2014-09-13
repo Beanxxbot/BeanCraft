@@ -25,6 +25,7 @@ public class ItemInfusedHoe extends ItemBC
         this.setUnlocalizedName("infusedHoe");
         this.setMaxDamage(1);
         this.setCreativeTab(CreativeTabBC.BC_TAB);
+        this.setMaxStackSize(1);
     }
 
     @SideOnly(Side.CLIENT)

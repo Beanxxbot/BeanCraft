@@ -4,6 +4,7 @@ import com.beanbot.beancraft.creativetab.CreativeTabBC;
 import com.beanbot.beancraft.init.ModBlocks;
 //import com.beanbot.beancraft.worldgen.WorldGenGenericTree;
 import com.beanbot.beancraft.reference.Reference;
+//import com.beanbot.beancraft.worldgen.WorldGenGenericTree;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -50,6 +51,13 @@ public class BlockBCSapling extends BlockSapling
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon (int side, int meta)
+    {
+        return icons[meta % 8];
+    }
+
+    @Override
     public boolean canPlaceBlockOn (Block id)
     {
         return id == Blocks.grass || id == Blocks.dirt || id == ModBlocks.chunkyDirt;
@@ -74,20 +82,13 @@ public class BlockBCSapling extends BlockSapling
         }
     }*/
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon (int side, int meta)
-    {
-        return icons[meta % 8];
-    }
-
     /*@Override
     public void func_149879_c (World world, int x, int y, int z, Random random)
     {
         boneFertilize(world, x, y, z, random, null);
-    }
+    }*/
 
-    public boolean boneFertilize (World world, int x, int y, int z, Random random, EntityPlayer player)
+    /*public boolean boneFertilize (World world, int x, int y, int z, Random random, EntityPlayer player)
     {
         int meta = world.getBlockMetadata(x, y, z);
 
@@ -112,7 +113,7 @@ public class BlockBCSapling extends BlockSapling
         world.setBlock(x, y, z, Blocks.air);
         WorldGenerator obj = null;
 
-        obj = new WorldGenGenericTree(true, 5, 4, 1, 0);
+        obj = new WorldGenGenericTree(true, 4);
 
         if (!(obj.generate(world, random, x, y, z)))
             world.setBlock(x, y, z, this, md + 8, 3);
