@@ -33,9 +33,10 @@ public class BeanCraft
         LogHelper.info("Pre Initialization Complete");
         MinecraftForge.EVENT_BUS.register(new EventBonemeal());
 
+        ModTileEntities.init();
+        OreDictionary.init();
         ModItems.init();
         ModBlocks.init();
-        OreDictionary.init();
         ClientProxy.initMod();
         MinecraftForge.EVENT_BUS.register(new EventBonemeal());
 

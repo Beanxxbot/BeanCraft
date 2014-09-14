@@ -2,6 +2,9 @@ package com.beanbot.beancraft.init;
 
 import com.beanbot.beancraft.block.*;
 import com.beanbot.beancraft.reference.Reference;
+import com.beanbot.beancraft.render.BlockRendererBioGenerator;
+import com.beanbot.beancraft.tile.TileEntityBioGenerator;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -21,11 +24,13 @@ public class ModBlocks
     public static final BlockBC machineCasing = new BlockMachineCasing();
     public static final BlockBCSlab machineCasingSlab = new BlockMachineCasingSlab(false);
     public static final BlockBCSlab machineCasingSlabFull = new BlockMachineCasingSlab(true);
+    public static final BlockBC bioGen = new BlockBioGenerator();
 
 
 
     public static void init()
     {
+        //Normal Blocks
         GameRegistry.registerBlock(goldenLeaves, "goldenLeaves");
         GameRegistry.registerBlock(bcLeaves, "bcLeaves");
         GameRegistry.registerBlock(sirJamloBlock, "sirJamloBlock");
@@ -37,6 +42,10 @@ public class ModBlocks
         GameRegistry.registerBlock(machineCasing, "machineCasing");
         GameRegistry.registerBlock(machineCasingSlab, "machineCasingSlab");
         GameRegistry.registerBlock(machineCasingSlabFull, "machineCasingSlabFull");
+        GameRegistry.registerBlock(bioGen, "bioGen");
+
+        //Rendering
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBioGenerator.class, new BlockRendererBioGenerator());
     }
 
 }
