@@ -40,8 +40,8 @@ public class ModelBioGenerator extends ModelBase
       BioMatrix.setTextureSize(64, 32);
       BioMatrix.mirror = true;
       setRotation(BioMatrix, 0F, 0F, 0F);
-      //Holder1.mirror = true;
       Holder1 = new ModelRenderer(this, 32, 4);
+      Holder1.mirror = true;
       Holder1.addBox(-22F, 9F, -0.5F, 11, 1, 1);
       Holder1.setRotationPoint(0F, 0F, 0F);
       Holder1.setTextureSize(64, 32);

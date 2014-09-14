@@ -7,7 +7,7 @@ public class ModTileEntities
 {
     public static void init()
     {
-        GameRegistry.registerTileEntity(TileEntityBioGenerator.class, "BioGenerator");
+        GameRegistry.registerTileEntity(TileEntityBioGenerator.class, "bioGenerator");
     }
 
 }
