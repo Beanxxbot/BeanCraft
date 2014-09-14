@@ -43,9 +43,6 @@ public class ModBlocks
         GameRegistry.registerBlock(machineCasingSlab, "machineCasingSlab");
         GameRegistry.registerBlock(machineCasingSlabFull, "machineCasingSlabFull");
         GameRegistry.registerBlock(bioGen, "bioGen");
-
-        //Rendering
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBioGenerator.class, new BlockRendererBioGenerator());
     }
 
 }
