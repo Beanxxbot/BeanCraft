@@ -1,6 +1,7 @@
 package com.beanbot.beancraft.render;
 
 import com.beanbot.beancraft.model.ModelBioCrystal;
+import com.beanbot.beancraft.model.ModelInfusedHoe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -8,14 +9,14 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
-public class ItemRendererBioCrystal implements IItemRenderer
+public class ItemRendererInfusedHoe implements IItemRenderer
 {
-    protected ModelBioCrystal modelBioCrystal;
-    private static final ResourceLocation texture = new ResourceLocation("beancraft", "/textures/models/bioCrystal.png");
+    protected ModelInfusedHoe modelInfusedHoe;
+    private static final ResourceLocation texture = new ResourceLocation("beancraft", "/textures/models/infusedHoe.png");
 
-    public ItemRendererBioCrystal()
+    public ItemRendererInfusedHoe()
     {
-        modelBioCrystal = new ModelBioCrystal();
+        modelInfusedHoe = new ModelInfusedHoe();
     }
 
     @Override
@@ -47,11 +48,12 @@ public class ItemRendererBioCrystal implements IItemRenderer
 
                 Minecraft.getMinecraft().renderEngine.bindTexture(texture);
 
-                float scale1 = 1.7F;
+                float scale1 = 1.0F;
                 GL11.glScalef(scale1, scale1, scale1);
-                GL11.glTranslatef(0.0F, 0.0F, 0.0F);
+                GL11.glTranslatef(0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(-180F, 1.0F, 0.0F, 0.0F);
 
-                modelBioCrystal.renderModel(0.0625F);
+                modelInfusedHoe.renderModel(0.0625F);
 
                 GL11.glPopMatrix();
                 break;
@@ -64,10 +66,13 @@ public class ItemRendererBioCrystal implements IItemRenderer
 
                 float scale2 = 1.2F;
                 GL11.glScalef(scale2, scale2, scale2);
-                GL11.glRotatef(0F, 0.0F, 0.0F, 0.0F);
-                GL11.glTranslatef(0.55F, 0.35F, 0.0F);
+                GL11.glRotatef(180F, 0.0F, 0.0F, 0.0F);
+                GL11.glRotatef(90F, 0.0F, 0.0F, 1.0F);
+                GL11.glRotatef(90F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(45F, 1.0F, 0.0F, 0.0F);
+                GL11.glTranslatef(0.0F, -0.5F, -0.5F);
 
-                modelBioCrystal.renderModel(0.0625F);
+                modelInfusedHoe.renderModel(0.0625F);
 
                 GL11.glPopMatrix();
                 break;
@@ -79,10 +84,13 @@ public class ItemRendererBioCrystal implements IItemRenderer
 
                 float scale3 = 1.2F;
                 GL11.glScalef(scale3, scale3, scale3);
-                GL11.glTranslatef(0.55F, 0.35F, 0.0F);
+                GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
+                GL11.glRotatef(90F, 0.0F, 0.0F, 1.0F);
+                GL11.glRotatef(90F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(45F, 1.0F, 0.0F, 0.0F);
+                GL11.glTranslatef(0.0F, -0.75F, -0.5F);
 
-                //modelBioCrystal.render((Entity)data[1], 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
-                modelBioCrystal.renderModel(0.0625F);
+                modelInfusedHoe.renderModel(0.0625F);
 
                 GL11.glPopMatrix();
                 break;
@@ -92,11 +100,13 @@ public class ItemRendererBioCrystal implements IItemRenderer
 
                 Minecraft.getMinecraft().renderEngine.bindTexture(texture);
 
-                float scale4 = 2.3F;
+                float scale4 = 1.1F;
                 GL11.glScalef(scale4, scale4, scale4);
-                GL11.glTranslatef(0.0F, -0.10F, 0.0F);
+                GL11.glTranslatef(0.0F, 0.5F, -0.2F);
+                GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
+                GL11.glRotatef(-90F, 0.0F, 1.0F, 0.0F);
 
-                modelBioCrystal.renderModel(0.0625F);
+                modelInfusedHoe.renderModel(0.0625F);
 
                 GL11.glPopMatrix();
                 break;

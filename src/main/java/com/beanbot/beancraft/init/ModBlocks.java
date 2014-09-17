@@ -7,6 +7,7 @@ import com.beanbot.beancraft.tile.TileEntityBioGenerator;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockSapling;
 
@@ -24,7 +25,7 @@ public class ModBlocks
     public static final BlockBC machineCasing = new BlockMachineCasing();
     public static final BlockBCSlab machineCasingSlab = new BlockMachineCasingSlab(false);
     public static final BlockBCSlab machineCasingSlabFull = new BlockMachineCasingSlab(true);
-    public static final BlockBC bioGen = new BlockBioGenerator();
+    public static final BlockBCContainer bioGen = new BlockBioGenerator();
 
 
 

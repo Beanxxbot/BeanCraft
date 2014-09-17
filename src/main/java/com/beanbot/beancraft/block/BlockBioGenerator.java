@@ -1,11 +1,12 @@
 package com.beanbot.beancraft.block;
 
 import com.beanbot.beancraft.tile.TileEntityBioGenerator;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockBioGenerator extends BlockBC
+public class BlockBioGenerator extends BlockBCContainer
 {
     public BlockBioGenerator()
     {
@@ -14,7 +15,7 @@ public class BlockBioGenerator extends BlockBC
         this.setBlockTextureName("bioGen");
     }
 
-    public TileEntity createNewTileEntity(World world)
+    public TileEntity createNewTileEntity(World world, int i)
     {
         return new TileEntityBioGenerator();
     }

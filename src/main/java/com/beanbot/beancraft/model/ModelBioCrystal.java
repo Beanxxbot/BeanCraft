@@ -63,7 +63,15 @@ public class ModelBioCrystal extends ModelBase
     Augments_2.render(f5);
     Augments_3.render(f5);
   }
-  
+
+  public void renderModel(float f)
+  {
+      Main_Cube.render(f);
+      Augments_1.render(f);
+      Augments_2.render(f);
+      Augments_3.render(f);
+  }
+
   private void setRotation(ModelRenderer model, float x, float y, float z)
   {
     model.rotateAngleX = x;

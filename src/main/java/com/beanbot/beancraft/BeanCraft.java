@@ -6,7 +6,10 @@ import com.beanbot.beancraft.init.*;
 import com.beanbot.beancraft.proxy.ClientProxy;
 import com.beanbot.beancraft.proxy.IProxy;
 import com.beanbot.beancraft.reference.Reference;
+import com.beanbot.beancraft.render.BlockRendererBioGenerator;
+import com.beanbot.beancraft.tile.TileEntityBioGenerator;
 import com.beanbot.beancraft.utility.LogHelper;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -33,7 +36,11 @@ public class BeanCraft
         LogHelper.info("Pre Initialization Complete");
         MinecraftForge.EVENT_BUS.register(new EventBonemeal());
 
-        ModTileEntities.init();
+        GameRegistry.registerTileEntity(TileEntityBioGenerator.class, "bioGenerator");
+
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBioGenerator.class, new BlockRendererBioGenerator());
+
+        //ModTileEntities.init();
         OreDictionary.init();
         ModItems.init();
         ModBlocks.init();
