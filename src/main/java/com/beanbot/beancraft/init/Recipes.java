@@ -16,8 +16,7 @@ public class Recipes
         //Shapeless
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.gold_ingot), new ItemStack(ModItems.goldenChunk), new ItemStack(ModItems.goldenChunk), new ItemStack(ModItems.goldenChunk)));
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.goldenChunk), "nuggetGold", "nuggetGold", "nuggetGold"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.vineStick), "stickWood", Blocks.vine, Blocks.vine, ModItems.leaf, ModItems.leaf));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.ironNugget), "ingotIron"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.vineStick), "stickWood", Blocks.vine, Blocks.vine, "bioMaterialTierOne", "bioMaterialTierOne"));
 
         //Shaped
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.bcLeaves), "ll", "ll", 'l', new ItemStack(ModItems.leaf));
@@ -27,7 +26,8 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.machineCasing, 4), "cyc", "yiy", "cyc", 'i', "ingotIron", 'c', Blocks.cobblestone, 'y', Blocks.stained_hardened_clay));
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.machineCasingSlab, 6), "   ", "   ", "mmm", 'm', ModBlocks.machineCasing);
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.machineRod, 4), "   ", " m ", "m  ", 'm', ModBlocks.machineCasing);
-        GameRegistry.addShapedRecipe(new ItemStack(ModItems.bioCrystal), "vsv", "cdp", "vbv", 'v', Blocks.vine, 's', Blocks.sapling, 'c', Items.carrot, 'd', Items.diamond, 'p', Items.potato, 'b', Blocks.red_flower);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.bioCrystal), "vbv", "bdb", "vbv", 'v', Blocks.vine, 'b', "bioMaterialTierZero", 'd', Items.diamond));
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.bioGen), " b ", "rdr", "csc", 'b', ModItems.bioCrystal, 'r', ModItems.machineRod, 'd', Items.diamond, 'c', ModBlocks.machineCasing, 's', ModBlocks.machineCasingSlab);
 
     }
 }

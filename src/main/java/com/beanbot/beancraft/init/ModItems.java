@@ -28,6 +28,7 @@ public class ModItems
     public static final ItemBC ironIngotDirt = new ItemIronIngotDirt();
     public static final ItemBC bioCrystal = new ItemBioCrystal();
     public static final ItemBC machineRod = new ItemMachineRod();
+    public static final ItemBC bioMatter = new ItemBioMatter();
 
     public static void init()
     {
@@ -49,6 +50,7 @@ public class ModItems
         GameRegistry.registerItem(infusedHoeOne, "infusedHoeOne");
         GameRegistry.registerItem(bioCrystal, "bioCrystal");
         GameRegistry.registerItem(machineRod, "machineRod");
+        GameRegistry.registerItem(bioMatter, "bioMatter");
 
     }
 }

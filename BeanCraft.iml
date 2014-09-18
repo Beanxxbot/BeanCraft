@@ -663,6 +663,24 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Code Chicken Core">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/mods/CodeChickenCore-1.7.10-1.0.3.26-dev.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Not Enough Items">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/mods/NotEnoughItems-1.7.10-1.0.3.56-dev.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
 

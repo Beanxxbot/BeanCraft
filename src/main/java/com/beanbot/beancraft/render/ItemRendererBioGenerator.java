@@ -42,7 +42,17 @@ public class ItemRendererBioGenerator implements IItemRenderer
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         if (type == ItemRenderType.ENTITY)
+        {
+            GL11.glScalef(0.6F, 0.6F, 0.6F);
             GL11.glTranslatef(-0.5F, 0.0F, -0.5F);
+        }
+        else if (type == ItemRenderType.EQUIPPED_FIRST_PERSON)
+        {
+            GL11.glScalef(0.9F, 0.9F, 0.9F);
+            GL11.glTranslatef(1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(20F, 0.0F, 0.0F, 1.0F);
+        }
+
         this.render.renderTileEntityAt(this.dummytile, 0.0D, 0.0D, 0.0D, 0.0F);
     }
 }
