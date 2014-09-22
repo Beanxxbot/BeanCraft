@@ -26,6 +26,8 @@ public class ModBlocks
     public static final BlockBCSlab machineCasingSlab = new BlockMachineCasingSlab(false);
     public static final BlockBCSlab machineCasingSlabFull = new BlockMachineCasingSlab(true);
     public static final BlockBCContainer bioGen = new BlockBioGenerator();
+    public static final BlockBC compressedBioMatter = new BlockCompressedBioMatter();
+    public static final Block bioPipe = new BlockBioPipe();
 
 
 
@@ -44,6 +46,8 @@ public class ModBlocks
         GameRegistry.registerBlock(machineCasingSlab, "machineCasingSlab");
         GameRegistry.registerBlock(machineCasingSlabFull, "machineCasingSlabFull");
         GameRegistry.registerBlock(bioGen, "bioGen");
+        GameRegistry.registerBlock(compressedBioMatter, "compressedBioMatter");
+        GameRegistry.registerBlock(bioPipe, "bioPipe");
     }
 
 }

@@ -1,10 +1,14 @@
 package com.beanbot.beancraft.block;
 
 import com.beanbot.beancraft.init.ModBlocks;
+import com.beanbot.beancraft.init.ModItems;
+import com.beanbot.beancraft.reference.Reference;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -14,12 +18,106 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 
+import java.sql.Ref;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class BlockBCCrop extends BlockBC implements IGrowable {
-
+public class BlockBCCrop extends BlockCrops
+{
     @SideOnly(Side.CLIENT)
+    private IIcon[] iconArray;
+
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconRegister)
+    {
+       this.iconArray = new IIcon[4];
+
+        for (int i = 0; i < this.iconArray.length; i++)
+        {
+            this.iconArray[i] = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())) + (i + 1));
+        }
+    }
+
+    public IIcon getIcon(int side, int metadata)
+    {
+        if (metadata < 7)
+        {
+            if (metadata == 6)
+            {
+                metadata = 5;
+            }
+            return this.iconArray[metadata >> 1];
+        }
+        return this.iconArray[3];
+    }
+
+    public int quantityDropped(Random random)
+    {
+        return 1;
+    }
+
+    public int getRenderType()
+    {
+        return 6;
+    }
+
+
+
+    @Override
+    public String getUnlocalizedName()
+    {
+        return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":",getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    }
+
+
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
+    {
+        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /** @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
     public BlockBCCrop()
@@ -30,9 +128,9 @@ public class BlockBCCrop extends BlockBC implements IGrowable {
         this.disableStats();
     }
 
-    /**
+
      * Ticks the block if it's been scheduled
-     */
+
     public void updateTick(World world, int x, int y, int z, Random random)
     {
         super.updateTick(world, x, y, z, random);
@@ -54,7 +152,7 @@ public class BlockBCCrop extends BlockBC implements IGrowable {
 
     /**
      * Gets the block's texture. Args: side, meta
-     */
+     *
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int s, int m)
     {
@@ -68,7 +166,7 @@ public class BlockBCCrop extends BlockBC implements IGrowable {
 
     /**
      * The type of render function that is called for this block
-     */
+     *
     public int getRenderType()
     {
         return 6;
@@ -86,7 +184,7 @@ public class BlockBCCrop extends BlockBC implements IGrowable {
 
     /**
      * Drops the block items with a specified chance of dropping the specified items
-     */
+     *
     public void dropBlockAsItemWithChance(World world, int x, int y, int z, int i, float f, int n)
     {
         super.dropBlockAsItemWithChance(world, x, y, z, i, f, 0);
@@ -99,7 +197,7 @@ public class BlockBCCrop extends BlockBC implements IGrowable {
 
     /**
      * Returns the quantity of items to drop on block destruction.
-     */
+     *
     public int quantityDropped(Random random)
     {
         return 1;
@@ -117,7 +215,7 @@ public class BlockBCCrop extends BlockBC implements IGrowable {
 
     /**
      * Gets an item for the block being called on. Args: world, x, y, z
-     */
+     *
     @SideOnly(Side.CLIENT)
     public Item getItem(World world, int x, int y, int z)
     {
@@ -161,5 +259,4 @@ public class BlockBCCrop extends BlockBC implements IGrowable {
     }
 
 
-
-}
+**/

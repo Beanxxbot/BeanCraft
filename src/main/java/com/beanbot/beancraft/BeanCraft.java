@@ -1,5 +1,6 @@
 package com.beanbot.beancraft;
 
+import com.beanbot.beancraft.client.gui.BeanCraftGUIHandler;
 import com.beanbot.beancraft.event.EventBonemeal;
 import com.beanbot.beancraft.handler.ConfigurationHandler;
 import com.beanbot.beancraft.init.*;
@@ -16,6 +17,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -36,14 +38,11 @@ public class BeanCraft
         LogHelper.info("Pre Initialization Complete");
         MinecraftForge.EVENT_BUS.register(new EventBonemeal());
 
-        GameRegistry.registerTileEntity(TileEntityBioGenerator.class, "bioGenerator");
-
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBioGenerator.class, new BlockRendererBioGenerator());
-
-        //ModTileEntities.init();
-        OreDictionary.init();
+        ModTileEntities.init();
         ModItems.init();
         ModBlocks.init();
+        ModGUIs.init();
+        OreDictionary.init();
         ClientProxy.initMod();
         MinecraftForge.EVENT_BUS.register(new EventBonemeal());
 
@@ -54,6 +53,8 @@ public class BeanCraft
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new BeanCraftGUIHandler());
+
         Recipes.init();
         LogHelper.info("Initialization Complete");
     }

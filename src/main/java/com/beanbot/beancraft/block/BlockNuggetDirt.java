@@ -30,16 +30,17 @@ public class BlockNuggetDirt extends BlockBCCrop
     }
 
     @Override
-    protected Item seed()
+    protected Item func_149866_i()
     {
         return ModItems.dirtChunk;
     }
 
     @Override
-    protected Item crop()
+    protected Item func_149865_P()
     {
         return ModItems.ironNuggetDirt;
     }
+
 
     public int getRenderType()
     {
@@ -47,7 +48,7 @@ public class BlockNuggetDirt extends BlockBCCrop
     }
 
 
-    @Override
+   /** @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
@@ -89,21 +90,6 @@ public class BlockNuggetDirt extends BlockBCCrop
         }
 
         return this.icons[m];
-    }
-
-
-    @SideOnly(Side.CLIENT)
-    public int getRenderBlockPass()
-    {
-        return 0;
-    }
-
-    public void bonemeal(BonemealEvent event)
-    {
-        if(event.world.getBlock(event.x, event.y, event.z)== ModBlocks.nuggetDirt)
-        {
-            event.setResult(Event.Result.DENY);
-        }
-    }
+    }**/
 
 }
