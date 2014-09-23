@@ -38,3 +38,6 @@ tooltip.beancraft:infusedHoeLvlOne.name=Level: One
 tooltip.beancraft:infusedHoeLvlTwo.name=Level: Two
 tooltip.beancraft:infusedHoeLvlThree.name=Level: Three
 
+#GUI Localizations
+gui.beancraft:bioGenerator.name=Biological Generator
+

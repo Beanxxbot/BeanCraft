@@ -16,6 +16,7 @@ public class OreDictionary
 
         registerOre("bioMaterialTierOne", new ItemStack(ModItems.leaf));
         registerOre("bioMaterialTierOne", new ItemStack(ModItems.bioMatter));
+        registerOre("bioMaterialTierOne", new ItemStack(ModItems.dirtChunk));
 
         registerOre("bioMaterialTierZero", new ItemStack(Blocks.leaves, 1, WILDCARD_VALUE));
         registerOre("bioMaterialTierZero", new ItemStack(Blocks.leaves2, 1, WILDCARD_VALUE));

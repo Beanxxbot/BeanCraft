@@ -13,9 +13,13 @@ public class GUIBioGenerator extends GuiContainer
 {
     public final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "textures/gui/bioGenerator.png");
 
+    private TileEntityBioGenerator bioGenerator;
+
     public GUIBioGenerator(InventoryPlayer inventoryPlayer, TileEntityBioGenerator bioGenerator)
     {
         super(new ContainerBioGenerator(inventoryPlayer, bioGenerator));
+
+        this.bioGenerator = bioGenerator;
 
         this.xSize = 176;
         this.ySize = 166;
@@ -26,5 +30,8 @@ public class GUIBioGenerator extends GuiContainer
     {
         Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+
+        int i = this.bioGenerator.getPowerScaled(52);
+        drawTexturedModalRect(guiLeft+80, guiTop+28+52-i, 177, 52-i, 16, i);
     }
 }
