@@ -14,7 +14,7 @@ public class BlockBioPipe extends BlockContainer
     {
         super(Material.wood);
         float pixel = 1F/16F;
-        this.setBlockName("bioPipe");
+        this.setBlockName("beancraft:bioPipe");
         this.setCreativeTab(CreativeTabBC.BC_TAB);
         this.useNeighborBrightness=true;
         this.setBlockBounds(11*pixel/2, 11*pixel/2, 11*pixel/2, 1-11*pixel/2, 1-11*pixel/2, 1-11*pixel/2);

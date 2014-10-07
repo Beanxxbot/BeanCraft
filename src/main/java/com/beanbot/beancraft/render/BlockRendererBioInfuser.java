@@ -1,6 +1,6 @@
 package com.beanbot.beancraft.render;
 
-import com.beanbot.beancraft.model.ModelBioGen;
+import com.beanbot.beancraft.model.ModelBioInfuser;
 import com.beanbot.beancraft.reference.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -8,13 +8,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class BlockRendererBioGenerator extends TileEntitySpecialRenderer
+public class BlockRendererBioInfuser extends TileEntitySpecialRenderer
 {
-
-    private ModelBioGen modelBioGen;
-    public BlockRendererBioGenerator()
+    private ModelBioInfuser modelBioInfuser;
+    public BlockRendererBioInfuser()
     {
-        this.modelBioGen = new ModelBioGen();
+        this.modelBioInfuser = new ModelBioInfuser();
     }
 
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)
@@ -22,12 +21,11 @@ public class BlockRendererBioGenerator extends TileEntitySpecialRenderer
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
-        Minecraft.getMinecraft().renderEngine.bindTexture(Reference.BIOGEN_TEXTURE);
+        Minecraft.getMinecraft().renderEngine.bindTexture(Reference.BIOINFUSER_TEXTURE);
         GL11.glTranslatef(0.0F, 0.0F, 0.0F);
         GL11.glPushMatrix();
-        modelBioGen.renderModel(0.0625F);
+        modelBioInfuser.renderModel(0.0625F);
         GL11.glPopMatrix();
         GL11.glPopMatrix();
     }
-
 }

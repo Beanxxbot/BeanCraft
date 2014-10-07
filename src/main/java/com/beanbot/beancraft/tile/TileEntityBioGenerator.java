@@ -1,14 +1,11 @@
 package com.beanbot.beancraft.tile;
 
-import com.beanbot.beancraft.init.ModItems;
 import com.beanbot.beancraft.reference.Gui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileEntityBioGenerator extends TileEntity implements ISidedInventory
 {
@@ -26,28 +23,22 @@ public class TileEntityBioGenerator extends TileEntity implements ISidedInventor
 
     public void addPower(double addition)
     {
-        power += addition;
+        //power += addition;
 
-        if (power > maxPower) power = maxPower;
+        //if (power > maxPower) power = maxPower;
     }
 
     public void updateEntity()
     {
-        if (this.getStackInSlot(0) == new ItemStack(ModItems.bioMatter))
-        {
-            System.out.println("bioMatter");
-            System.out.println(this.getStackInSlot(0));
+        powerPerMatterTZero++;
 
+        powerPerMatterTZero = 0.2F;
 
-        }
-
-        //powerPerMatterTZero++;
-
-        //powerPerMatterTZero = 0.2F;
-
+        //LogHelper.debug(power);
         //System.out.println(power);
 
-        //power += powerPerMatterTZero;
+        power += powerPerMatterTZero;
+        if (power > maxPower) power = maxPower;
 
     }
 

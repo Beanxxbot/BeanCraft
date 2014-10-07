@@ -9,7 +9,7 @@ public class TileEntityBioPipe extends TileEntity
      * up, down, north, east, south, west
      */
 
-    public ForgeDirection[] connections = new ForgeDirection[7];
+    public ForgeDirection[] connections = new ForgeDirection[8];
 
     public TileEntityBioPipe()
     {
@@ -37,5 +37,7 @@ public class TileEntityBioPipe extends TileEntity
         else connections[5] = null;
         if(this.worldObj.getTileEntity(xCoord, yCoord-1, zCoord) instanceof TileEntityBioGenerator) connections[6] = ForgeDirection.DOWN;
         else connections[6] = null;
+        if(this.worldObj.getTileEntity(xCoord+1, yCoord, zCoord) instanceof TileEntityBioInfuser) connections[7] = ForgeDirection.EAST;
+        else connections[7] = null;
     }
 }

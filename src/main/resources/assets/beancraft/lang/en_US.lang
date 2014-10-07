@@ -31,6 +31,8 @@ tile.beancraft:machineCasing.name=Machine Casing
 tile.beancraft:machineCasing0Slab.name=Machine Casing Slab
 tile.beancraft:bioGen.name=Biologic Generator
 tile.beancraft:compressedBioMatter.name=Compressed Natural Material
+tile.beancraft:bioPipe.name=Biologic Pipe
+tile.beancraft:bioInfuser.name=Biologic Infuser
 
 #Tooltip localizations
 tooltip.beancraft:infusedHoeLvlZero.name=Level: Zero

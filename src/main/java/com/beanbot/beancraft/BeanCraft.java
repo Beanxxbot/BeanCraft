@@ -19,6 +19,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
@@ -33,10 +34,11 @@ public class BeanCraft
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+
+
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
         LogHelper.info("Pre Initialization Complete");
-        MinecraftForge.EVENT_BUS.register(new EventBonemeal());
 
         ModTileEntities.init();
         ModItems.init();
@@ -44,7 +46,8 @@ public class BeanCraft
         ModGUIs.init();
         OreDictionary.init();
         ClientProxy.initMod();
-        MinecraftForge.EVENT_BUS.register(new EventBonemeal());
+
+
 
 
 

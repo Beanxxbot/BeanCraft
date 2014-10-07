@@ -1,6 +1,7 @@
 package com.beanbot.beancraft.render;
 
 import com.beanbot.beancraft.model.ModelBioCrystal;
+import com.beanbot.beancraft.reference.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -11,8 +12,6 @@ import org.lwjgl.opengl.GL11;
 public class ItemRendererBioCrystal implements IItemRenderer
 {
     protected ModelBioCrystal modelBioCrystal;
-    private static final ResourceLocation texture = new ResourceLocation("beancraft", "/textures/models/bioCrystal.png");
-
     public ItemRendererBioCrystal()
     {
         modelBioCrystal = new ModelBioCrystal();
@@ -45,7 +44,7 @@ public class ItemRendererBioCrystal implements IItemRenderer
             case ENTITY:
                 GL11.glPushMatrix();
 
-                Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+                Minecraft.getMinecraft().renderEngine.bindTexture(Reference.BIOCRYSTAL_TEXTURE);
 
                 float scale1 = 1.7F;
                 GL11.glScalef(scale1, scale1, scale1);
@@ -60,7 +59,7 @@ public class ItemRendererBioCrystal implements IItemRenderer
 
                 GL11.glPushMatrix();
 
-                Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+                Minecraft.getMinecraft().renderEngine.bindTexture(Reference.BIOCRYSTAL_TEXTURE);
 
                 float scale2 = 1.2F;
                 GL11.glScalef(scale2, scale2, scale2);
@@ -75,7 +74,7 @@ public class ItemRendererBioCrystal implements IItemRenderer
             case EQUIPPED_FIRST_PERSON:
                 GL11.glPushMatrix();
 
-                Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+                Minecraft.getMinecraft().renderEngine.bindTexture(Reference.BIOCRYSTAL_TEXTURE);
 
                 float scale3 = 1.2F;
                 GL11.glScalef(scale3, scale3, scale3);
@@ -90,7 +89,7 @@ public class ItemRendererBioCrystal implements IItemRenderer
             case INVENTORY:
                 GL11.glPushMatrix();
 
-                Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+                Minecraft.getMinecraft().renderEngine.bindTexture(Reference.BIOCRYSTAL_TEXTURE);
 
                 float scale4 = 2.3F;
                 GL11.glScalef(scale4, scale4, scale4);

@@ -73,6 +73,11 @@ public class TileEntityRendererPipe extends TileEntitySpecialRenderer {
             else if(direction.equals(ForgeDirection.EAST))
             {
                 GL11.glRotatef(270, 0, 0, 1);
+
+                tessellator.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 5 * texturePixel, 5 * texturePixel);
+                tessellator.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2, 5 * texturePixel, 0 * texturePixel);
+                tessellator.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1-11 * pixel / 2, 0 * texturePixel, 0 * texturePixel);
+                tessellator.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2, 1-11 * pixel / 2, 0 * texturePixel, 5 * texturePixel);
             }
             GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 

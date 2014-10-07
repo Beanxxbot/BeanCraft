@@ -2,6 +2,7 @@ package com.beanbot.beancraft.render;
 
 import com.beanbot.beancraft.model.ModelBioCrystal;
 import com.beanbot.beancraft.model.ModelInfusedHoe;
+import com.beanbot.beancraft.reference.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -12,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 public class ItemRendererInfusedHoe implements IItemRenderer
 {
     protected ModelInfusedHoe modelInfusedHoe;
-    private static final ResourceLocation texture = new ResourceLocation("beancraft", "/textures/models/infusedHoe.png");
+    private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "/textures/models/infusedHoe.png");
 
     public ItemRendererInfusedHoe()
     {

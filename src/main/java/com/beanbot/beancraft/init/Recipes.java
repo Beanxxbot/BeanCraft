@@ -30,6 +30,8 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.bioCrystal), "vbv", "bdb", "vbv", 'v', Blocks.vine, 'b', "bioMaterialTierZero", 'd', Items.diamond));
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.bioGen), " b ", "rdr", "csc", 'b', ModItems.bioCrystal, 'r', ModItems.machineRod, 'd', Items.diamond, 'c', ModBlocks.machineCasing, 's', ModBlocks.machineCasingSlab);
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.bioMatter), "ooo", "obo", "ooo", 'o', ModBlocks.compressedBioMatter, 'b', ModItems.bioCrystal);
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.bioInfuser), "pcp", "msm", "mmm", 'p', ModBlocks.bioPipe, 'c', ModItems.bioCrystal, 'm', ModBlocks.machineCasing, 's', ModBlocks.machineCasingSlab);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.bioPipe), "vvv", "pcp", "vvv", 'v', ModItems.vineStick, 'p', "plankWood", 'c', ModItems.bioCrystal));
 
     }
 }

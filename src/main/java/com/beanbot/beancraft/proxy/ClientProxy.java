@@ -4,6 +4,7 @@ import com.beanbot.beancraft.init.ModBlocks;
 import com.beanbot.beancraft.init.ModItems;
 import com.beanbot.beancraft.render.*;
 import com.beanbot.beancraft.tile.TileEntityBioGenerator;
+import com.beanbot.beancraft.tile.TileEntityBioInfuser;
 import com.beanbot.beancraft.tile.TileEntityBioPipe;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -21,7 +22,11 @@ public class ClientProxy extends CommonProxy
         TileEntitySpecialRenderer render = new BlockRendererBioGenerator();
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.bioGen), new ItemRendererBioGenerator(render, new TileEntityBioGenerator()));
 
+        TileEntitySpecialRenderer render1 = new BlockRendererBioInfuser();
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.bioInfuser), new ItemRendererBioInfuser(render1, new TileEntityBioInfuser()));
+
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBioGenerator.class, new BlockRendererBioGenerator());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBioInfuser.class, new BlockRendererBioInfuser());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBioPipe.class, new TileEntityRendererPipe());
     }
 }
