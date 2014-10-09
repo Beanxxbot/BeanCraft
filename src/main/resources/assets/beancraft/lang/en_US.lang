@@ -17,6 +17,7 @@ item.beancraft:ironIngotDirt.name=Dirt Crusted Iron Ingot
 item.beancraft:bioCrystal.name=Biologic Crystal
 item.beancraft:machineRod.name=Machine Rod
 item.beancraft:bioMatter.name=Biological Matter
+item.beancraft:solarElixir.name=Solar Elixir
 
 # Block localizations
 tile.beancraft:goldenLeaves.name=Gold Nugget Laced Leaf Block

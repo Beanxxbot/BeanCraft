@@ -1,11 +1,15 @@
 package com.beanbot.beancraft.tile;
 
 import com.beanbot.beancraft.reference.Gui;
+import ibxm.Player;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class TileEntityBioGenerator extends TileEntity implements ISidedInventory
 {
@@ -14,7 +18,21 @@ public class TileEntityBioGenerator extends TileEntity implements ISidedInventor
     public int maxPower = 16000;
     public float power = 0;
 
-    public float powerPerMatterTZero = 0.2F;
+    private static Random random = new Random();
+
+    public boolean initialized;
+    private boolean canRain;
+    private boolean noSunlight;
+    public boolean theSunIsVisible;
+
+    private int tick;
+
+    public float powerPerMatterTZero = 0.0F;
+
+    public TileEntityBioGenerator()
+    {
+        this.tick = random.nextInt(64);
+    }
 
     public int getPowerScaled(int scaled)
     {
@@ -30,16 +48,43 @@ public class TileEntityBioGenerator extends TileEntity implements ISidedInventor
 
     public void updateEntity()
     {
-        powerPerMatterTZero++;
+        if (!initialized && worldObj != null)
+        {
+            canRain = worldObj.getWorldChunkManager().getBiomeGenAt(xCoord, zCoord).getIntRainfall() > 0;
+            noSunlight = worldObj.provider.hasNoSky;
+            initialized = true;
+        }
+        if (noSunlight)
+        {
+            return;
+        }
+        if (tick-- == 0)
+        {
+            updateSunState();
+            tick = 64;
+        }
+        powerPerMatterTZero = 0.0F;
 
-        powerPerMatterTZero = 0.2F;
-
+        if (theSunIsVisible)
+        {
+            powerPerMatterTZero = 5.0F;
+            System.out.println("Sun is visible");
+        }
+        if (powerPerMatterTZero != 0)
+        {
+            powerPerMatterTZero++;
+        }
+        power += powerPerMatterTZero;
+        if (power > maxPower) power = maxPower;
         //LogHelper.debug(power);
         //System.out.println(power);
 
-        power += powerPerMatterTZero;
-        if (power > maxPower) power = maxPower;
 
+    }
+
+    private void updateSunState() {
+        boolean isRaining = canRain && (worldObj.isRaining() || worldObj.isThundering());
+        theSunIsVisible = worldObj.isDaytime() && !isRaining && worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord);
     }
 
     public void readFromNBT(NBTTagCompound nbt)
