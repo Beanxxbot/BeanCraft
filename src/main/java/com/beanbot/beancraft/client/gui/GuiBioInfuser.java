@@ -31,5 +31,8 @@ public class GuiBioInfuser extends GuiContainer
         Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
+        //int k = this.bioInfuser.getInfusionProgressScaled(52);
+        //drawTexturedModalRect(guiLeft + 62, guiTop + 24, 177, 0, k + 1, 16);
+
     }
 }

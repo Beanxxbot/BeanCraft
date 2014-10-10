@@ -14,4 +14,5 @@ public class Reference
     public static final ResourceLocation BIOGEN_TEXTURE = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "/textures/models/bioGenerator.png");
     public static final ResourceLocation BIOINFUSER_TEXTURE = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "/textures/models/bioInfuser.png");
     public static final ResourceLocation BIOCRYSTAL_TEXTURE = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "/textures/models/bioCrystal.png");
+    public static final ResourceLocation BIOEXTRACTOR_TEXTURE = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "/textures/models/bioExtractor.png");
 }

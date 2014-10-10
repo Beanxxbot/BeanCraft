@@ -29,6 +29,7 @@ public class ModBlocks
     public static final BlockBC compressedBioMatter = new BlockCompressedBioMatter();
     public static final Block bioPipe = new BlockBioPipe();
     public static final BlockBCContainer bioInfuser = new BlockBioInfuser();
+    public static final BlockBCContainer bioExtractor = new BlockBioExtractor();
 
 
 
@@ -50,6 +51,7 @@ public class ModBlocks
         GameRegistry.registerBlock(compressedBioMatter, "compressedBioMatter");
         GameRegistry.registerBlock(bioPipe, "bioPipe");
         GameRegistry.registerBlock(bioInfuser, "bioInfuser");
+        GameRegistry.registerBlock(bioExtractor, "bioExtractor");
     }
 
 }

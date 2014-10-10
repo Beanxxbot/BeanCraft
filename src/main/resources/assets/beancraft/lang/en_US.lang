@@ -34,6 +34,7 @@ tile.beancraft:bioGen.name=Biologic Generator
 tile.beancraft:compressedBioMatter.name=Compressed Natural Material
 tile.beancraft:bioPipe.name=Biologic Pipe
 tile.beancraft:bioInfuser.name=Biologic Infuser
+tile.beancraft:bioExtractor.name=Biologic Extractor
 
 #Tooltip localizations
 tooltip.beancraft:infusedHoeLvlZero.name=Level: Zero

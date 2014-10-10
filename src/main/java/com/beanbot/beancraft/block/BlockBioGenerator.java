@@ -23,6 +23,7 @@ public class BlockBioGenerator extends BlockBCContainer
         this.setStepSound(soundTypeAnvil);
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
         this.setCreativeTab(CreativeTabBC.BC_TAB);
+
     }
 
     public TileEntity createNewTileEntity(World world, int i)

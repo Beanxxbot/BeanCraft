@@ -1,13 +1,25 @@
 package com.beanbot.beancraft.tile;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
 {
     private ItemStack[] slots = new ItemStack[3];
+    public int infusionBurnTime;
+    public int currentBurnTime;
+    public int infusionCookTime;
 
 
 
@@ -84,6 +96,63 @@ public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
         }
     }
 
+    public void readFromNBT(NBTTagCompound tagCompound) {
+        super.readFromNBT(tagCompound);
+        NBTTagList tagList = tagCompound.getTagList("Items", 10);
+        this.slots = new ItemStack[this.getSizeInventory()];
+
+        for (int i = 0; i < tagList.tagCount(); ++i) {
+            NBTTagCompound tabCompound1 = tagList.getCompoundTagAt(i);
+            byte byte0 = tabCompound1.getByte("Slot");
+
+            if (byte0 >= 0 && byte0 < this.slots.length) {
+                this.slots[byte0] = ItemStack.loadItemStackFromNBT(tabCompound1);
+            }
+        }
+
+        this.infusionBurnTime = tagCompound.getShort("BurnTime");
+        this.infusionCookTime = tagCompound.getShort("CookTime");
+        this.currentBurnTime = getItemBurnTime(this.slots[1]);
+
+    }
+
+    public void writeToNBT(NBTTagCompound tagCompound) {
+        super.writeToNBT(tagCompound);
+        tagCompound.setShort("BurnTime", (short) this.infusionBurnTime);
+        tagCompound.setShort("CookTime", (short) this.infusionBurnTime);
+        NBTTagList tagList = new NBTTagList();
+
+        for (int i = 0; i < this.slots.length; ++i) {
+            if (this.slots[i] != null) {
+                NBTTagCompound tagCompound1 = new NBTTagCompound();
+                tagCompound1.setByte("Slot", (byte) i);
+                this.slots[i].writeToNBT(tagCompound1);
+                tagList.appendTag(tagCompound1);
+            }
+        }
+
+        tagCompound.setTag("Items", tagList);
+    }
+
+    public static int getItemBurnTime(ItemStack itemstack){
+        if(itemstack == null){
+            return 0;
+        }else{
+            Item item = itemstack.getItem();
+
+            if(item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air){
+                Block block = Block.getBlockFromItem(item);
+
+                if(block.getMaterial() == Material.rock){
+                    return 300;
+                }
+            }
+
+            if(item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("EMERALD")) return 300;
+            return GameRegistry.getFuelValue(itemstack);
+        }
+    }
+
     @Override
     public String getInventoryName() {
         return null;
@@ -112,6 +181,11 @@ public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
     @Override
     public void closeInventory() {
 
+    }
+
+    //public int getInfusionProgressScaled(int i)
+    {
+        //return this.infusionCookTime *i / this.infusionBurnTime;
     }
 
     @Override
