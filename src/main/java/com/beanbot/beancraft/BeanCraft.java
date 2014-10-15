@@ -1,16 +1,13 @@
 package com.beanbot.beancraft;
 
 import com.beanbot.beancraft.client.gui.BeanCraftGUIHandler;
-import com.beanbot.beancraft.event.EventBonemeal;
 import com.beanbot.beancraft.handler.ConfigurationHandler;
 import com.beanbot.beancraft.init.*;
+import com.beanbot.beancraft.init.recipes.Recipes;
 import com.beanbot.beancraft.proxy.ClientProxy;
 import com.beanbot.beancraft.proxy.IProxy;
 import com.beanbot.beancraft.reference.Reference;
-import com.beanbot.beancraft.render.BlockRendererBioGenerator;
-import com.beanbot.beancraft.tile.TileEntityBioGenerator;
 import com.beanbot.beancraft.utility.LogHelper;
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -18,9 +15,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class BeanCraft

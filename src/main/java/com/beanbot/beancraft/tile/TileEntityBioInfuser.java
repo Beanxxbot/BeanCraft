@@ -1,10 +1,14 @@
 package com.beanbot.beancraft.tile;
 
+import com.beanbot.beancraft.init.ModItems;
+import com.beanbot.beancraft.init.OreDictionary;
+import com.beanbot.beancraft.init.recipes.BioInfuserRecipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -16,26 +20,35 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
 {
-    private ItemStack[] slots = new ItemStack[3];
-    public int infusionBurnTime;
-    public int currentBurnTime;
-    public int infusionCookTime;
+    private ItemStack[] slots = new ItemStack[4];
+
+    public int bioPower;
+    public int infusionTime;
+    public static final int maxBioPower = 8000;
+    public static final int infusionSpeed = 120;
+
+    private static final int[] slots_top = new int[] {0, 1};
+    private static final int[] slots_bottom = new int[] {3};
+    private static final int[] slots_side = new int[] {2};
 
 
-
-    @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return new int[0];
+    public TileEntityBioInfuser() {
+        slots = new ItemStack[4];
     }
 
     @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
-        return false;
+    public int[] getAccessibleSlotsFromSide(int i) {
+        return i == 0 ? slots_bottom : (i == 1 ? slots_top : slots_side);
     }
 
     @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return false;
+    public boolean canInsertItem(int var1, ItemStack itemStack, int var3) {
+        return this.isItemValidForSlot(var1, itemStack);
+    }
+
+    @Override
+    public boolean canExtractItem(int i, ItemStack itemStack, int j) {
+        return j != 0 || i != 1 || itemStack.getItem() == Items.bucket;
     }
 
     @Override
@@ -46,6 +59,32 @@ public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
     @Override
     public ItemStack getStackInSlot(int i) {
         return this.slots[i];
+    }
+
+    @Override
+    public boolean isItemValidForSlot(int i, ItemStack itemStack) {
+        return i == 2 ? false : (i == 2 ? hasItemPower(itemStack) : true);
+    }
+
+    public boolean hasItemPower(ItemStack itemStack)
+    {
+        return getItemPower(itemStack) > 0;
+    }
+
+    private static int getItemPower(ItemStack itemStack)
+    {
+        if (itemStack == null)
+        {
+            return 0;
+        }
+        else
+        {
+            Item item = itemStack.getItem();
+
+            if (item == ModItems.bioMatter || item == ModItems.dirtChunk) return 10;
+
+            return 0;
+        }
     }
 
     @Override
@@ -110,16 +149,15 @@ public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
             }
         }
 
-        this.infusionBurnTime = tagCompound.getShort("BurnTime");
-        this.infusionCookTime = tagCompound.getShort("CookTime");
-        this.currentBurnTime = getItemBurnTime(this.slots[1]);
+        this.infusionTime = tagCompound.getShort("InfusionTime");
+        this.bioPower = tagCompound.getShort("Power");
 
     }
 
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
-        tagCompound.setShort("BurnTime", (short) this.infusionBurnTime);
-        tagCompound.setShort("CookTime", (short) this.infusionBurnTime);
+        tagCompound.setShort("InfusionTime", (short) this.infusionTime);
+        tagCompound.setShort("Power", (short) this.bioPower);
         NBTTagList tagList = new NBTTagList();
 
         for (int i = 0; i < this.slots.length; ++i) {
@@ -134,25 +172,6 @@ public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
         tagCompound.setTag("Items", tagList);
     }
 
-    public static int getItemBurnTime(ItemStack itemstack){
-        if(itemstack == null){
-            return 0;
-        }else{
-            Item item = itemstack.getItem();
-
-            if(item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air){
-                Block block = Block.getBlockFromItem(item);
-
-                if(block.getMaterial() == Material.rock){
-                    return 300;
-                }
-            }
-
-            if(item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("EMERALD")) return 300;
-            return GameRegistry.getFuelValue(itemstack);
-        }
-    }
-
     @Override
     public String getInventoryName() {
         return null;
@@ -161,6 +180,151 @@ public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
     @Override
     public boolean hasCustomInventoryName() {
         return false;
+    }
+
+    public int getInfusionProgressScaled(int i)
+    {
+        return (infusionTime * i) / this.infusionSpeed;
+    }
+
+    public int getPowerRemainingScaled(int i)
+    {
+        return (bioPower * i) / maxBioPower;
+    }
+
+    private boolean canInfuse()
+    {
+        if (slots[0] == null || slots[1] == null)
+        {
+            return false;
+        }
+        ItemStack itemStack = BioInfuserRecipes.getInfusionResults(slots[0].getItem(), slots[1].getItem());
+
+        if (itemStack == null)
+        {
+            return false;
+        }
+        if (slots[3] == null)
+        {
+            return true;
+        }
+        if (!slots[3].isItemEqual(itemStack))
+        {
+            return false;
+        }
+        if (slots[3].stackSize < getInventoryStackLimit() && slots[3].stackSize < slots[3].getMaxStackSize())
+        {
+            return true;
+        }
+        else
+        {
+            return slots[3].stackSize < itemStack.getMaxStackSize();
+        }
+
+    }
+
+    private void infuseItem()
+    {
+        if (canInfuse())
+        {
+            ItemStack itemStack = BioInfuserRecipes.getInfusionResults(slots[0].getItem(), slots[1].getItem());
+
+            if (slots[3] == null)
+            {
+                slots[3] = itemStack.copy();
+            }
+            else if (slots[3].isItemEqual(itemStack))
+            {
+                slots[3].stackSize += itemStack.stackSize;
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                if (slots[i].stackSize <=0)
+                {
+                    slots[i] = new ItemStack(slots[i].getItem().setFull3D());
+                }
+                else
+                {
+                    slots[i].stackSize--;
+                }
+
+                if (slots[i].stackSize <= 0)
+                {
+                    slots[i] = null;
+                }
+            }
+        }
+    }
+
+    public boolean hasPower()
+    {
+        return bioPower > 0;
+    }
+
+    public boolean isInfusing()
+    {
+        return this.infusionTime > 0;
+    }
+
+    public void updateEntity()
+    {
+        boolean flag = this.hasPower();
+        boolean flag1 = false;
+
+        //System.out.println(bioPower);
+        System.out.println(infusionTime);
+
+        if (hasPower() && this.isInfusing())
+        {
+            this.bioPower--;
+        }
+
+        if(worldObj.isRemote)
+        {
+            if (this.hasItemPower(this.slots[2]) && this.bioPower < (this.maxBioPower - this.getItemPower(this.slots[2])))
+            {
+                this.bioPower += getItemPower(this.slots[2]);
+
+                if (this.slots[2] != null)
+                {
+                    flag1 = true;
+
+                    this.slots[2].stackSize--;
+
+                    if (this.slots[2].stackSize == 0)
+                    {
+                        this.slots[2] = this.slots[2].getItem().getContainerItem(this.slots[2]);
+                    }
+                }
+            }
+
+            if (hasPower() && canInfuse())
+            {
+                System.out.println("Infusing");
+                infusionTime++;
+
+                if (this.infusionTime == this.infusionSpeed)
+                {
+                    this.infusionTime = 0;
+                    this.infuseItem();
+                    flag1 = true;
+                }
+                else
+                {
+                    infusionTime = 0;
+                }
+                if (flag != this.isInfusing())
+                {
+                    flag1 = true;
+
+                }
+            }
+            if (flag1)
+            {
+                this.markDirty();
+            }
+        }
     }
 
     @Override
@@ -183,13 +347,4 @@ public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
 
     }
 
-    //public int getInfusionProgressScaled(int i)
-    {
-        //return this.infusionCookTime *i / this.infusionBurnTime;
-    }
-
-    @Override
-    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-        return false;
-    }
 }

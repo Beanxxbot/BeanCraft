@@ -1,5 +1,7 @@
-package com.beanbot.beancraft.init;
+package com.beanbot.beancraft.init.recipes;
 
+import com.beanbot.beancraft.init.ModBlocks;
+import com.beanbot.beancraft.init.ModItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

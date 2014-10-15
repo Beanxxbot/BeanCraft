@@ -15,7 +15,7 @@ public class TileEntityBioGenerator extends TileEntity implements ISidedInventor
 {
     private ItemStack[] slots = new ItemStack[1];
 
-    public int maxPower = 16000;
+    public int maxPower = 8000;
     public float power = 0;
 
     private static Random random = new Random();

@@ -4,6 +4,7 @@ public class ModGUIs
 {
     public static final int guiIDBioGen = 0;
     public static final int guiIDBioInfuser = 1;
+    public static final int guiIDBioExtractor = 2;
 
     public static void init()
     {

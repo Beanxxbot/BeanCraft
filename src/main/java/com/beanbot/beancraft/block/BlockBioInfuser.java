@@ -23,7 +23,6 @@ public class BlockBioInfuser extends BlockBCContainer
         this.setBlockTextureName("bioInfuser");
         this.setStepSound(soundTypeAnvil);
         this.setCreativeTab(CreativeTabBC.BC_TAB);
-        this.useNeighborBrightness=true;
     }
 
     public TileEntity createNewTileEntity(World world, int i)
@@ -59,10 +58,10 @@ public class BlockBioInfuser extends BlockBCContainer
     public void onBlockAdded(World world, int x, int y, int z)
     {
         super.onBlockAdded(world, x, y, z);
-        this.direction(world, x, y, z);
+        //this.direction(world, x, y, z);
     }
 
-    public void direction(World world, int x, int y, int z)
+    /**public void direction(World world, int x, int y, int z)
     {
         if(!world.isRemote)
         {
@@ -115,5 +114,5 @@ public class BlockBioInfuser extends BlockBCContainer
             world.setBlockMetadataWithNotify(x, y, z, 4, 2);
         }
 
-    }
+    }**/
 }
