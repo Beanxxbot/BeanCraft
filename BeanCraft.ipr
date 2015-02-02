@@ -169,6 +169,13 @@
       </item>
     </group>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="Ben">
+      <words>
+        <w>beancraft</w>
+      </words>
+    </dictionary>
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BeanCraft.iml" filepath="$PROJECT_DIR$/BeanCraft.iml" />
@@ -184,4 +191,3 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>
-

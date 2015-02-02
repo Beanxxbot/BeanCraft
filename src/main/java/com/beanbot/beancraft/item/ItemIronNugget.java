@@ -13,7 +13,7 @@ public class ItemIronNugget extends ItemBC
     {
         super();
         this.setUnlocalizedName("ironNugget");
-        this.setCreativeTab(CreativeTabBC.BC_TAB);
+        this.setCreativeTab(CreativeTabBC.BC_TAB_MATERIAL);
     }
 
 

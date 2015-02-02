@@ -2,6 +2,8 @@ package com.beanbot.beancraft.init;
 
 import com.beanbot.beancraft.creativetab.CreativeTabBC;
 import com.beanbot.beancraft.item.*;
+import com.beanbot.beancraft.item.bauble.BaubleCrystalAmulet;
+import com.beanbot.beancraft.item.bauble.ItemBauble;
 import com.beanbot.beancraft.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
@@ -30,6 +32,14 @@ public class ModItems
     public static final ItemBC machineRod = new ItemMachineRod();
     public static final ItemBC bioMatter = new ItemBioMatter();
     public static final ItemBC solarElixir = new ItemSolarElixir();
+    public static final ItemBC diamondNugget = new ItemDiamondNugget();
+    public static final ItemBC diamondChunk = new ItemDiamondChunk();
+    public static final ItemBC quartzNugget = new ItemQuartzNugget();
+    public static final ItemBC quartzChunk = new ItemQuartzChunk();
+    public static final ItemBC coalNugget = new ItemCoalNugget();
+    public static final ItemBC coalChunk = new ItemCoalChunk();
+    public static final ItemBauble crystalAmulet = new BaubleCrystalAmulet();
+    public static final ItemBC bioPowder = new ItemBioPowder();
 
     public static void init()
     {
@@ -41,7 +51,7 @@ public class ModItems
         GameRegistry.registerItem(goldenIngotLeaf, "goldenIngotLeaf");
         GameRegistry.registerItem(infusedHoe, "infusedHoe");
         GameRegistry.registerItem(vineStick, "vineStick");
-        GameRegistry.registerItem(ironBall, "ironBall");
+        //GameRegistry.registerItem(ironBall, "ironBall");
         GameRegistry.registerItem(ironNugget, "ironNugget");
         GameRegistry.registerItem(ironChunk, "ironChunk");
         GameRegistry.registerItem(dirtChunk, "dirtChunk");
@@ -52,7 +62,15 @@ public class ModItems
         GameRegistry.registerItem(bioCrystal, "bioCrystal");
         GameRegistry.registerItem(machineRod, "machineRod");
         GameRegistry.registerItem(bioMatter, "bioMatter");
-        GameRegistry.registerItem(solarElixir, "solarElixir");
+        //GameRegistry.registerItem(solarElixir, "solarElixir");
+        GameRegistry.registerItem(diamondNugget, "diamondNugget");
+        GameRegistry.registerItem(diamondChunk, "diamondChunk");
+        GameRegistry.registerItem(quartzNugget, "quartzNugget");
+        GameRegistry.registerItem(quartzChunk, "quartzChunk");
+        GameRegistry.registerItem(coalNugget, "coalNugget");
+        GameRegistry.registerItem(coalChunk, "coalChunk");
+        GameRegistry.registerItem(crystalAmulet, "bioCrystalAmulet");
+        GameRegistry.registerItem(bioPowder, "bioPowder");
 
     }
 }

@@ -2,12 +2,11 @@ package com.beanbot.beancraft.item;
 
 import com.beanbot.beancraft.creativetab.CreativeTabBC;
 
-public class ItemGoldenChunk extends ItemBC
+public class ItemDiamondChunk extends ItemBC
 {
-    public ItemGoldenChunk()
-    {
+    public ItemDiamondChunk() {
         super();
-        this.setUnlocalizedName("goldenChunk");
+        this.setUnlocalizedName("diamondChunk");
         this.setCreativeTab(CreativeTabBC.BC_TAB_MATERIAL);
     }
 }

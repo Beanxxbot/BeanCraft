@@ -18,6 +18,13 @@ item.beancraft:bioCrystal.name=Biologic Crystal
 item.beancraft:machineRod.name=Machine Rod
 item.beancraft:bioMatter.name=Biological Matter
 item.beancraft:solarElixir.name=Solar Elixir
+item.beancraft:diamondNugget.name=Diamond Nugget
+item.beancraft:diamondChunk.name=Diamond Chunk
+item.beancraft:coalNugget.name=Coal Nugget
+item.beancraft:coalChunk.name=Coal Chunk
+item.beancraft:quartzNugget.name=Nether Quartz Nugget
+item.beancraft:quartzChunk.name=Nether Quartz Chunk
+item.beancraft:bioCrystalAmulet.name=Biologic Crystal Amulet
 
 # Block localizations
 tile.beancraft:goldenLeaves.name=Gold Nugget Laced Leaf Block
@@ -41,6 +48,13 @@ tooltip.beancraft:infusedHoeLvlZero.name=Level: Zero
 tooltip.beancraft:infusedHoeLvlOne.name=Level: One
 tooltip.beancraft:infusedHoeLvlTwo.name=Level: Two
 tooltip.beancraft:infusedHoeLvlThree.name=Level: Three
+tooltip.beancraft:bioAmulet1=A Biologic Crystal hung around a string.
+tooltip.beancraft:bioAmulet2=The Elves say it helps their magic, but
+tooltip.beancraft:bioAmulet3=it is a little heavy to wear around.
+
+tooltip.beancraft:shift=Hold SHIFT for More Info!
+
+tooltip.beancraft:bauble.amulet=Goes in the Pendant Slot
 
 #GUI Localizations
 gui.beancraft:bioGenerator.name=Biological Generator

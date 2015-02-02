@@ -33,4 +33,14 @@ public class CreativeTabBC
             return "Bean Craft Bonus Items";
         }
     };
+    public static final CreativeTabs BC_TAB_MATERIAL = new CreativeTabs(Reference.MOD_ID)
+    {
+        @Override
+        public Item getTabIconItem() {
+            return ModItems.diamondNugget;
+        }
+
+        @Override
+        public String getTranslatedTabLabel(){return "Bean Craft Materials";}
+    };
 }

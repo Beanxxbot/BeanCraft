@@ -273,7 +273,7 @@ public class TileEntityBioInfuser extends TileEntity implements ISidedInventory
         boolean flag1 = false;
 
         //System.out.println(bioPower);
-        System.out.println(infusionTime);
+        //System.out.println(infusionTime);
 
         if (hasPower() && this.isInfusing())
         {

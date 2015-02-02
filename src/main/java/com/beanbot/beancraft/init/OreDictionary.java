@@ -13,6 +13,9 @@ public class OreDictionary
     public static void init()
     {
         registerOre("nuggetIron", new ItemStack(ModItems.ironNugget));
+        registerOre("nuggetCoal", new ItemStack(ModItems.coalNugget));
+        registerOre("nuggetQuartz", new ItemStack(ModItems.quartzNugget));
+        registerOre("nuggetDiamond", new ItemStack(ModItems.diamondNugget));
 
         registerOre("bioMaterialTierOne", new ItemStack(ModItems.leaf));
         registerOre("bioMaterialTierOne", new ItemStack(ModItems.bioMatter));

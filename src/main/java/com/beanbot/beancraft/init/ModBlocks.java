@@ -44,14 +44,14 @@ public class ModBlocks
         GameRegistry.registerBlock(chunkyDirt, "chunkyDirt");
         GameRegistry.registerBlock(beanSapling, "beanSapling");
         GameRegistry.registerBlock(nuggetDirt, "nuggetDirt");
-        GameRegistry.registerBlock(machineCasing, "machineCasing");
-        GameRegistry.registerBlock(machineCasingSlab, "machineCasingSlab");
-        GameRegistry.registerBlock(machineCasingSlabFull, "machineCasingSlabFull");
-        GameRegistry.registerBlock(bioGen, "bioGen");
+        //GameRegistry.registerBlock(machineCasing, "machineCasing");
+        //GameRegistry.registerBlock(machineCasingSlab, "machineCasingSlab");
+        //GameRegistry.registerBlock(machineCasingSlabFull, "machineCasingSlabFull");
+        //GameRegistry.registerBlock(bioGen, "bioGen");
         GameRegistry.registerBlock(compressedBioMatter, "compressedBioMatter");
-        GameRegistry.registerBlock(bioPipe, "bioPipe");
-        GameRegistry.registerBlock(bioInfuser, "bioInfuser");
-        GameRegistry.registerBlock(bioExtractor, "bioExtractor");
+        //GameRegistry.registerBlock(bioPipe, "bioPipe");
+        //GameRegistry.registerBlock(bioInfuser, "bioInfuser");
+        //GameRegistry.registerBlock(bioExtractor, "bioExtractor");
     }
 
 }

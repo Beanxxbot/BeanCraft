@@ -5,8 +5,12 @@ import com.beanbot.beancraft.init.ModBlocks;
 //import com.beanbot.beancraft.worldgen.WorldGenGenericTree;
 import com.beanbot.beancraft.reference.Reference;
 //import com.beanbot.beancraft.worldgen.WorldGenGenericTree;
+import com.beanbot.beancraft.worldgen.WorldGenGenericTree;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mcp.mobius.waila.api.IWailaBlock;
+import mcp.mobius.waila.api.IWailaConfigHandler;
+import mcp.mobius.waila.api.IWailaDataAccessor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -22,7 +26,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.List;
 import java.util.Random;
 
-public class BlockBCSapling extends BlockSapling
+public class BlockBCSapling extends BlockSapling implements IWailaBlock
 {
     public IIcon[] icons;
     public String[] textureNames = new String[] { "beanSapling" };
@@ -63,7 +67,7 @@ public class BlockBCSapling extends BlockSapling
         return id == Blocks.grass || id == Blocks.dirt || id == ModBlocks.chunkyDirt;
     }
 
-    /*@Override
+    @Override
     public void updateTick (World world, int x, int y, int z, Random random)
     {
         if (world.isRemote)
@@ -80,15 +84,15 @@ public class BlockBCSapling extends BlockSapling
             else
                 growTree(world, x, y, z, random);
         }
-    }*/
+    }
 
-    /*@Override
+    @Override
     public void func_149879_c (World world, int x, int y, int z, Random random)
     {
         boneFertilize(world, x, y, z, random, null);
-    }*/
+    }
 
-    /*public boolean boneFertilize (World world, int x, int y, int z, Random random, EntityPlayer player)
+    public boolean boneFertilize (World world, int x, int y, int z, Random random, EntityPlayer player)
     {
         int meta = world.getBlockMetadata(x, y, z);
 
@@ -105,23 +109,16 @@ public class BlockBCSapling extends BlockSapling
         }
 
         return true;
-    }*/
+    }
 
-    /*public void growTree (World world, int x, int y, int z, Random random)
+    public void growTree (World world, int x, int y, int z, Random random)
     {
         int md = world.getBlockMetadata(x, y, z) % 8;
         world.setBlock(x, y, z, Blocks.air);
-        WorldGenerator obj = null;
-
-        obj = new WorldGenGenericTree(true, 4);
+        WorldGenerator obj = new WorldGenGenericTree(true);
 
         if (!(obj.generate(world, random, x, y, z)))
             world.setBlock(x, y, z, this, md + 8, 3);
-    }*/
-
-    public int damageDropped (int i)
-    {
-        return i % 8;
     }
 
     @SideOnly(Side.CLIENT)
@@ -143,4 +140,24 @@ public class BlockBCSapling extends BlockSapling
     }
 
 
+    @Override
+    public ItemStack getWailaStack(IWailaDataAccessor accessor, IWailaConfigHandler config) {
+        return null;
+    }
+
+    @Override
+    public List<String> getWailaHead(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config) {
+        return currenttip;
+    }
+
+    @Override
+    public List<String> getWailaBody(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config) {
+        currenttip.add("Not Working Yet!");
+        return currenttip;
+    }
+
+    @Override
+    public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config) {
+        return currenttip;
+    }
 }

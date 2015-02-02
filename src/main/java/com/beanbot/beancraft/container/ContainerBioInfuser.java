@@ -122,6 +122,6 @@ public class ContainerBioInfuser extends Container {
 
     @Override
     public boolean canInteractWith(EntityPlayer player) {
-        return bioInfuser.isUseableByPlayer(player);
+        return true;
     }
 }

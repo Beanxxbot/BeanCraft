@@ -8,6 +8,6 @@ public class ItemIronChunk extends ItemBC
     {
         super();
         this.setUnlocalizedName("ironChunk");
-        this.setCreativeTab(CreativeTabBC.BC_TAB);
+        this.setCreativeTab(CreativeTabBC.BC_TAB_MATERIAL);
     }
 }

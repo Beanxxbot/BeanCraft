@@ -3,6 +3,7 @@ package com.beanbot.beancraft;
 import com.beanbot.beancraft.client.gui.BeanCraftGUIHandler;
 import com.beanbot.beancraft.handler.ConfigurationHandler;
 import com.beanbot.beancraft.init.*;
+import com.beanbot.beancraft.init.recipes.ElvenTradeRecipes;
 import com.beanbot.beancraft.init.recipes.Recipes;
 import com.beanbot.beancraft.proxy.ClientProxy;
 import com.beanbot.beancraft.proxy.IProxy;
@@ -12,6 +13,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -41,10 +43,6 @@ public class BeanCraft
         OreDictionary.init();
         ClientProxy.initMod();
 
-
-
-
-
     }
 
     @Mod.EventHandler
@@ -53,6 +51,9 @@ public class BeanCraft
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new BeanCraftGUIHandler());
 
         Recipes.init();
+        ElvenTradeRecipes.init();
+
+        FMLInterModComms.sendMessage("Waila", "register", "com.beanbot.beancraft.waila.BeanCraftProvider.callbackRegister");
         LogHelper.info("Initialization Complete");
     }
 

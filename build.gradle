@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-0.1.8"
+version = "1.7.10-0.2.1"
 group= "com.beanbot.beancraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "BeanCraft"
 
 minecraft {
-    version = "1.7.10-10.13.1.1217"
+    version = "1.7.10-10.13.2.1291"
     assetDir = "eclipse/assets"
 }
 

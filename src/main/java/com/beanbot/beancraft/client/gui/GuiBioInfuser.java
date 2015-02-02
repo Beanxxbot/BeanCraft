@@ -37,10 +37,10 @@ public class GuiBioInfuser extends GuiContainer
             drawTexturedModalRect(guiLeft + 62, guiTop + 24, 177, 0, i1 + 1, 16);
         }
 
-        if (bioInfuser.bioPower > 1)
-        {
+        //if (bioInfuser.bioPower > 1)
+        //{
             //drawTexturedModalRect(guiLeft + 85, guiTop + 21, 117, );
-        }
+        //}
 
         int i1 = bioInfuser.getPowerRemainingScaled(45);
         drawTexturedModalRect(guiLeft + 152, guiTop + 57 - i1, 177, 94 - i1, 16, i1);
